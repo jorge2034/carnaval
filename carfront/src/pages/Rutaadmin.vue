@@ -194,7 +194,7 @@ export default {
       lng:0,
       iconSize: 30,
       modaldatos:false,
-      socket : io('http://localhost:3000'),
+      socket : io('https://carnavalsocket.gamo.gob.bo'),
       swsocket : 0
     };
   },
