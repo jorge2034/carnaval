@@ -72,7 +72,7 @@ module.exports = configure(function (ctx) {
       env: {
         API: ctx.dev
           ? 'http://localhost:8000/api/'
-          : 'https://www.back.carnavaloruro.tk/api/'
+          : 'https://carnavalback.gamo.gob.bo/api/'
       }
     },
 
