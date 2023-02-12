@@ -17,10 +17,11 @@
         <!--        <div>Quasar v{{ $q.version }}</div>-->
       </q-toolbar>
       <div class="q-px-lg">
-        <div v-if="$store.getters['login/nombre']==undefined" class="text-h6">Carnaval 2023 <small style="font-size: 10px">(Tiempo real)</small></div>
+        <div v-if="$store.getters['login/nombre']==undefined" class="text-h6">Carnaval de Oruro 2023 <small style="font-size: 10px">(Tiempo real)</small></div>
         <div v-else class="text-h6">{{$store.getters["login/nombre"]}}</div>
 <!--        <div>{{$store.getters["login/nombre"]}}</div>-->
         <div class="text-subtitle2">{{now}} </div>
+        <!-- <div class="text-subtitle2" style="font-size: 10px">Obra Maestra del Patrimonio Oral e Intangible de la Humanidad </div> -->
       </div>
       <q-img
         src="~assets/gamo.jpg"
@@ -55,7 +56,8 @@
             <img src="~assets/logo.png">
           </q-avatar>
           <div class="text-weight-bold">G.A.M.O.</div>
-          <div>Gobierno autonomo</div>
+          <div>Gobierno Autonomo</div>
+          <div>Municipal de Oruro</div>
         </div>
       </q-img>
     </q-drawer>
