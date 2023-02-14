@@ -10,11 +10,11 @@ const routes = [
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: Photo},
+      { path: "", component: Rol },
+      { path: "photo", component: Photo},
       { path: "rutaadmin", component: Rutaadmin },
       { path: "ruta", component: Ruta },
       { path: "video", component: Video },
-      { path: "rol", component: Rol },
       { path: "rubro/:id", component: Rubro },
       { path: "aviso", component: Index },
     ],
