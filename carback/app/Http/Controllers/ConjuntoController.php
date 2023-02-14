@@ -18,6 +18,15 @@ class ConjuntoController extends Controller
         return Conjunto::all();
     }
 
+    public function conjuntosabado()
+    {
+        return Conjunto::orderby('ordensabado')->get();
+    }
+     public function conjuntodomingo()
+    {
+        return Conjunto::orderby('ordendomingo')->get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

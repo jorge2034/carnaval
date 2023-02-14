@@ -195,6 +195,7 @@ export default {
       iconSize: 30,
       modaldatos:false,
       socket : io('https://carnavalsocket.gamo.gob.bo'),
+      // socket : io('http://localhost:3000'),
       swsocket : 0
     };
   },
@@ -214,10 +215,10 @@ export default {
     misocket(){
     this.socket.emit('my message', 'hola desde rutaadmin ');
     this.socket.on('my broadcast', (data) => {
-       // console.log(data);
+        console.log(data);
         this.misconjuntos()
       });
-  },
+    },
     mostrarconjunto(c){
       this.conjunto=c
       // console.log(this.conjunto)

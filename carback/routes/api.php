@@ -21,3 +21,5 @@ Route::resource('rubro',\App\Http\Controllers\RubroController::class);
 Route::resource('punto',\App\Http\Controllers\PuntoController::class);
 Route::resource('aviso',\App\Http\Controllers\AvisoController::class);
 Route::resource('conjunto',\App\Http\Controllers\ConjuntoController::class);
+Route::get('/conjuntosabado',[\App\Http\Controllers\ConjuntoController::class,'conjuntosabado']);
+Route::get('/conjuntodomingo',[\App\Http\Controllers\ConjuntoController::class,'conjuntodomingo']);

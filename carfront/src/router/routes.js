@@ -4,6 +4,7 @@ import Rutaadmin from "pages/Rutaadmin";
 import Rubro from "pages/Rubro";
 import Photo from "pages/Photo";
 import Video from "pages/Video";
+import Rol from "pages/Rol";
 const routes = [
   {
     path: "/",
@@ -13,6 +14,7 @@ const routes = [
       { path: "rutaadmin", component: Rutaadmin },
       { path: "ruta", component: Ruta },
       { path: "video", component: Video },
+      { path: "rol", component: Rol },
       { path: "rubro/:id", component: Rubro },
       { path: "aviso", component: Index },
     ],
