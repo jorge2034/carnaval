@@ -80,8 +80,16 @@ class ConjuntoController extends Controller
     public function update(UpdateConjuntoRequest $request, Conjunto $conjunto)
     {
 //        $conjunto->update($request->all());
-        $conjunto->lat=$request->lat;
-        $conjunto->lng=$request->lng;
+        if($request->lat==15 or $request->lng==15){
+            $conjunto->lat=$request->lat;
+            $conjunto->lng=$request->lng;
+            $conjunto->estado="FINALIZADO";
+        }else{
+            $conjunto->lat=$request->lat;
+            $conjunto->lng=$request->lng;
+            $conjunto->estado="EN PROCESO";
+        }
+
         $conjunto->save();
         return $conjunto;
     }
