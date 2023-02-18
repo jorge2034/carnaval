@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md q-gutter-sm">
+  <div class="q-pa-xs q-gutter-sm">
 
     <div class="row justify-center">
       <q-btn-toggle
@@ -17,8 +17,9 @@
       v-model="slide"
       infinite
       height="48em"
+      width="100%"
     >
-      <q-carousel-slide name="sabado">
+      <q-carousel-slide name="sabado" class="full-width">
 
 
         <q-list bordered class="rounded-borders" style="width: 100%">
@@ -38,7 +39,7 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label lines="2">{{c.ordensabado}}.- {{c.nombre}}</q-item-label>
+          <q-item-label class="text-weight-light" text-weightlines="2">{{c.ordensabado}}.- {{c.nombre}}</q-item-label>
           <q-item-label caption lines="2">
             <span class="text-weight-bold">Grupo {{c.grupo}}</span>
           </q-item-label>
