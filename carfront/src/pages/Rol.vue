@@ -42,6 +42,9 @@
           <q-item-label caption lines="2">
             <span class="text-weight-bold">Grupo {{c.grupo}}</span>
           </q-item-label>
+          <q-item-label caption lines="2">
+            <span class="text-weight-bold">{{c.calles!==null?c.calles:""}}</span>
+          </q-item-label>
         </q-item-section>
 
         <q-item-section side top>

@@ -115,7 +115,13 @@
           />
         </q-card-section>
                <!-- <pre>{{conjunto}}</pre> -->
-               <q-form @submit="finalizarconjunto(conjunto)">
+               <q-form @submit="modificarcalleconjunto()">
+                 <q-card-section class="q-pt-none">
+                  <q-input filled  v-model="calle" label="CALLES DONDE SE ENCUENTRA EL CONJUNTO" stack-label :dense="dense"/>
+                   <q-btn type="submit" color="green" class="full-width" label="Actualizar calle" icon="send" />
+               </q-card-section>
+              </q-form>
+               <q-form @submit="finalizarconjunto()">
                  <q-card-section class="q-pt-none">
                    <q-btn type="submit" color="primary" class="full-width" label="FINALIZAR" icon="send" />
                </q-card-section>
@@ -195,7 +201,8 @@ export default {
       modaldatos:false,
       socket : io('https://carnavalsocket.gamo.gob.bo'),
       // socket : io('http://localhost:3000'),
-      swsocket : 0
+      swsocket : 0,
+      calle:""
     };
   },
   created() {
@@ -256,7 +263,17 @@ export default {
       this.$q.loading.show()
       this.conjunto.lat=15
       this.conjunto.lng=15
-
+      this.conjunto.estado="FINALIZADO"
+      this.$api.put("conjunto/"+this.conjunto.id,this.conjunto).then(res=>{
+        // console.log(res.data)
+        this.misocket();
+        this.modaldatos=false
+        this.$q.loading.hide()
+      })
+    },
+    modificarcalleconjunto(){
+      this.$q.loading.show()
+      this.conjunto.calles=this.calle
       this.$api.put("conjunto/"+this.conjunto.id,this.conjunto).then(res=>{
         // console.log(res.data)
         this.misocket();

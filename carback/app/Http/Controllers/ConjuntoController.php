@@ -80,19 +80,34 @@ class ConjuntoController extends Controller
     public function update(UpdateConjuntoRequest $request, Conjunto $conjunto)
     {
 //        $conjunto->update($request->all());
-        if($request->lat==15 or $request->lng==15){
             $conjunto->lat=$request->lat;
             $conjunto->lng=$request->lng;
-            $conjunto->estado="FINALIZADO";
+        if($request->estado=="FINALIZADO"){
+            $conjunto->estado=$request->estado;
+            $conjunto->calles="";
         }else{
             $conjunto->lat=$request->lat;
             $conjunto->lng=$request->lng;
             $conjunto->estado="EN PROCESO";
+            $conjunto->calles=$request->calles;
         }
 
         $conjunto->save();
         return $conjunto;
     }
+    public function updatecalles(UpdateConjuntoRequest $request, Conjunto $conjunto)
+    {
+//        $conjunto->update($request->all());
+        if($request->estado=="FINALIZADO"){
+            $conjunto->calles="";
+        }else{
+            $conjunto->calles=$request->calles;
+        }
+
+        $conjunto->save();
+        return $conjunto;
+    }
+
 
     /**
      * Remove the specified resource from storage.
