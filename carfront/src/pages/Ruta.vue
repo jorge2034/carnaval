@@ -205,7 +205,7 @@ export default {
       socket : io('https://carnavalsocket.gamo.gob.bo'),
       // socket : io('http://localhost:3000'),
       swsocket : 0,
-      contador:5867
+      contador:15284
     };
   },
   created() {
@@ -213,7 +213,7 @@ export default {
    // this.misconjuntos();
    this.misconjuntos();
    this.misocket();
-
+   this.micontador()
     // socket.on('chat message', message => {
     //   console.log(message)
     //   this.misconjuntos()
