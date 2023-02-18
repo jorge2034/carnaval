@@ -229,6 +229,7 @@ export default {
       this.conjunto=c
       // console.log(this.conjunto)
       this.modaldatos=true
+      this.calle=""
     },
     draggableconjunto(e,c){
       // console.log(c)
