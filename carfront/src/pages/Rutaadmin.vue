@@ -114,13 +114,12 @@
             style="height: 35px; max-width: 35px"
           />
         </q-card-section>
-        <!--        <pre>{{conjunto}}</pre>-->
-        <!--        <q-form @submit="actualizarconjunto">-->
-        <!--          <q-card-section class="q-pt-none">-->
-        <!--            <q-select @filter="filterFn" use-input outlined dense label="Conjunto" :options="conjuntos" v-model="conjunto"/>-->
-        <!--            <q-btn type="submit" color="primary" class="full-width" label="Actualizar" icon="send" />-->
-        <!--          </q-card-section>-->
-        <!--        </q-form>-->
+               <!-- <pre>{{conjunto}}</pre> -->
+               <q-form @submit="finalizarconjunto(conjunto)">
+                 <q-card-section class="q-pt-none">
+                   <q-btn type="submit" color="primary" class="full-width" label="FINALIZAR" icon="send" />
+               </q-card-section>
+            </q-form>
         <q-card-actions align="right" class="bg-white text-teal">
           <q-btn flat icon="cancel" label="cerrar" v-close-popup />
         </q-card-actions>
@@ -238,6 +237,7 @@ export default {
         // console.log(res.data)
         this.misocket();
         this.modelactualizarconjunto=false
+        this.$q.loading.hide()
       })
     },
     actualizarconjunto(){
@@ -249,21 +249,34 @@ export default {
         // console.log(res.data)
         this.misocket();
         this.modelactualizarconjunto=false
+        this.$q.loading.hide()
+      })
+    },
+    finalizarconjunto(){
+      this.$q.loading.show()
+      this.conjunto.lat=15
+      this.conjunto.lng=15
+
+      this.$api.put("conjunto/"+this.conjunto.id,this.conjunto).then(res=>{
+        // console.log(res.data)
+        this.misocket();
+        this.modaldatos=false
+        this.$q.loading.hide()
       })
     },
     misconjuntos(){
-      this.$q.loading.show()
+    //  this.$q.loading.show()
       this.$api.get("conjunto").then(res=>{
         // console.log(res.data)
         this.conjuntos=[]
         res.data.forEach(r=>{
           let d=r
-          d.label=r.nombre
+          d.label=r.ordensabado+".- " + r.nombre
           this.conjuntos.push(d)
         })
         this.conjuntos2=this.conjuntos
-        this.conjunto=this.conjuntos[0]
-        this.$q.loading.hide()
+       // this.conjunto=this.conjuntos[0]
+    //    this.$q.loading.hide()
       }).catch(err=>{
         this.$q.loading.hide()
         this.$q.notify({
