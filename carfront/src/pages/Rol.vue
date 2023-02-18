@@ -43,7 +43,7 @@
             <span class="text-weight-bold">Grupo {{c.grupo}}</span>
           </q-item-label>
           <q-item-label caption lines="2">
-            <span class="text-weight-bold"><q-icon v-if="c.calles!==null" name="place" color="green" size="15px" />{{c.calles!==null?`${c.calles}`:""}}</span>
+            <span class="text-weight-bold"><q-icon v-if="c.calles!==null && c.estado=='EN PROCESO' " name="place" color="green" size="15px" />{{c.calles!==null&& c.estado=='EN PROCESO'?`${c.calles}`:""}}</span>
           </q-item-label>
         </q-item-section>
 
