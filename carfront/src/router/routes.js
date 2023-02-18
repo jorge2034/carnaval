@@ -12,7 +12,7 @@ const routes = [
     children: [
       { path: "", component: Rol },
       { path: "photo", component: Photo},
-      { path: "rutaadmin", component: Rutaadmin },
+      { path: "carnavaladministrador", component: Rutaadmin },
       { path: "ruta", component: Ruta },
       { path: "video", component: Video },
       { path: "rubro/:id", component: Rubro },
