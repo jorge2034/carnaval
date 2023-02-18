@@ -21,7 +21,7 @@
         <q-carousel-slide :name="5" img-src="img/5.jpeg" />
         <q-carousel-slide :name="6" img-src="img/6.jpeg" />
         <q-carousel-slide :name="7" img-src="img/7.jpeg" />
-        <q-carousel-slide :name="8" img-src="img/7.jpeg" />
+        <q-carousel-slide :name="8" img-src="img/8.jpeg" />
         <q-carousel-slide :name="9" img-src="img/9.jpeg" />
         <q-carousel-slide :name="10" img-src="img/10.jpeg" />
         <q-carousel-slide :name="11" img-src="img/11.jpeg" />

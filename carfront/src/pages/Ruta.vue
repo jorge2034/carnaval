@@ -1,6 +1,7 @@
 <template>
   <div >
    <!-- <q-btn @click="click" label="click" icon="send" color="negative" /> -->
+   <q-btn id="contador" size="sm" color="primary" icon="visibility" :label="contador" @click="micontador" />
     <l-map
       @ready="onReady"
       v-model="zoom"
@@ -121,6 +122,15 @@
     </q-dialog>
   </div>
 </template>
+<style>
+#contador {
+  position: absolute;
+  top: 120px;
+  right: 20px;
+  padding: 10px;
+  z-index: 500;
+}
+</style>
 <script>
 // import io from 'socket.io-client'
 //const socket = io('https://socket.carnavaloruro.tk')
@@ -194,7 +204,8 @@ export default {
       id:this.$route.params.id,
       socket : io('https://carnavalsocket.gamo.gob.bo'),
       // socket : io('http://localhost:3000'),
-      swsocket : 0
+      swsocket : 0,
+      contador:5867
     };
   },
   created() {
@@ -217,6 +228,14 @@ export default {
   methods: {
     click(){
      this.misocket()
+    },
+    micontador(){
+      // this.$q.loading.show()
+      this.$api.get("contador").then(res=>{
+         console.log(res.data)
+         this.contador = res.data[0].contador;
+
+      })
     },
     misocket(){
    // this.socket.emit('my message', 'hola desde quasar ');
