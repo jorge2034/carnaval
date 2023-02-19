@@ -210,8 +210,8 @@ export default {
       iconSize: 30,
       modaldatos:false,
       id:this.$route.params.id,
-     // socket : io('https://carnavalsocket.gamo.gob.bo'),
-      socket : io('http://localhost:3002'),
+     socket : io('https://carnavalsocket.gamo.gob.bo'),
+      // socket : io('http://localhost:3002'),
       swsocket : 0,
       contador:"",
       // usuarios:""
