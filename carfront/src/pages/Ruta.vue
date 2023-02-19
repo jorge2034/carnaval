@@ -296,7 +296,7 @@ export default {
           this.conjuntos.push(d)
         })
         this.conjuntos2=this.conjuntos
-        this.conjunto=this.conjuntos[0]
+      //  this.conjunto=this.conjuntos[0]
         // this.$q.loading.hide()
       })
     },
