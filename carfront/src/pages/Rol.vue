@@ -39,7 +39,7 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label class="text-weight-light" text-weightlines="2">{{c.ordensabado}}.- {{c.nombre}}</q-item-label>
+          <q-item-label class="text-weight-light" lines="2">{{c.ordensabado}}.- {{c.nombre}}</q-item-label>
           <q-item-label caption lines="2">
             <span class="text-weight-bold">Grupo {{c.grupo}}</span>
           </q-item-label>
@@ -76,9 +76,12 @@
         </q-item-section>
 
         <q-item-section>
-          <q-item-label lines="2">{{c.ordendomingo}}.- {{c.nombre}}</q-item-label>
+          <q-item-label class="text-weight-light" lines="2">{{c.ordendomingo}}.- {{c.nombre}}</q-item-label>
           <q-item-label caption lines="2">
             <span class="text-weight-bold">Grupo {{c.grupo}}</span>
+          </q-item-label>
+          <q-item-label caption lines="2">
+            <span class="text-weight-bold"><q-icon v-if="c.calles!==null && c.estado=='EN PROCESO' " name="place" color="green" size="15px" />{{c.calles!==null&& c.estado=='EN PROCESO'?`${c.calles}`:""}}</span>
           </q-item-label>
         </q-item-section>
 
