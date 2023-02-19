@@ -309,12 +309,12 @@ export default {
     },
     misconjuntos(){
     //  this.$q.loading.show()
-      this.$api.get("conjunto").then(res=>{
+      this.$api.get("conjuntodomingo").then(res=>{
         // console.log(res.data)
         this.conjuntos=[]
         res.data.forEach(r=>{
           let d=r
-          d.label=r.ordensabado+".- " + r.nombre
+          d.label=r.ordendomingo+".- " + r.nombre
           this.conjuntos.push(d)
         })
         this.conjuntos2=this.conjuntos

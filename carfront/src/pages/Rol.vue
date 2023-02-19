@@ -105,7 +105,7 @@ export default {
       conjuntos:[],
       conjunto2:{},
       conjunto:{},
-      slide:'sabado'
+      slide:'domingo'
     }
   },
   created() {
