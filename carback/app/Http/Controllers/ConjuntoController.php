@@ -95,20 +95,6 @@ class ConjuntoController extends Controller
         $conjunto->save();
         return $conjunto;
     }
-    public function updatecalles(UpdateConjuntoRequest $request, Conjunto $conjunto)
-    {
-//        $conjunto->update($request->all());
-        if($request->estado=="FINALIZADO"){
-            $conjunto->calles="";
-        }else{
-            $conjunto->calles=$request->calles;
-        }
-
-        $conjunto->save();
-        return $conjunto;
-    }
-
-
     /**
      * Remove the specified resource from storage.
      *

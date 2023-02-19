@@ -1,6 +1,8 @@
 <template>
   <div style="height: 80vh ; width: 100%;">
     <!--    <q-btn @click="click" label="click" icon="send" color="negative" />-->
+    <q-btn id="contador" size="sm" color="primary" icon="visibility" :label="contador"/>
+   <q-btn id="usuarios" size="sm" color="green" icon="people" :label="usuarios" />
     <l-map
       @ready="onReady"
       v-model="zoom"
@@ -133,6 +135,22 @@
     </q-dialog>
   </div>
 </template>
+<style>
+#contador {
+  position: absolute;
+  top: 120px;
+  right: 20px;
+  padding: 10px;
+  z-index: 500;
+}
+#usuarios {
+  position: absolute;
+  top: 120px;
+  right: 110px;
+  padding: 10px;
+  z-index: 500;
+}
+</style>
 <script>
 // import io from 'socket.io-client'
 // const socket = io('http://localhost:3000')
@@ -199,15 +217,22 @@ export default {
       lng:0,
       iconSize: 30,
       modaldatos:false,
-      socket : io('https://carnavalsocket.gamo.gob.bo'),
-      // socket : io('http://localhost:3000'),
+      //socket : io('https://carnavalsocket.gamo.gob.bo'),
+      socket : io('http://localhost:3002'),
       swsocket : 0,
-      calle:""
+      calle:"",
+      contador:"",
+      usuarios:""
+
     };
   },
   created() {
     this.misconjuntos();
     this.misocket();
+    this.socket.on('actualizar', (usuarios_conectados, visitas) => {
+          this.contador=visitas
+          this.usuarios=usuarios_conectados
+      });
   },
   beforeUnmount() {
     if (this.socket) {

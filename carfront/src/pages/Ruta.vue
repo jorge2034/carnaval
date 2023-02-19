@@ -1,8 +1,9 @@
 <template>
   <div >
    <!-- <q-btn @click="click" label="click" icon="send" color="negative" /> -->
-   <q-btn id="contador" size="sm" color="primary" icon="visibility" :label="contador" @click="micontador" />
-    <l-map
+   <q-btn id="contador" size="sm" color="primary" icon="visibility" :label="contador"/>
+   <!-- <q-btn id="usuarios" size="sm" color="green" icon="people" :label="usuarios" /> -->
+   <l-map
       @ready="onReady"
       v-model="zoom"
       :zoom="zoom"
@@ -130,6 +131,13 @@
   padding: 10px;
   z-index: 500;
 }
+/* #usuarios {
+  position: absolute;
+  top: 120px;
+  right: 110px;
+  padding: 10px;
+  z-index: 500;
+} */
 </style>
 <script>
 // import io from 'socket.io-client'
@@ -202,22 +210,22 @@ export default {
       iconSize: 30,
       modaldatos:false,
       id:this.$route.params.id,
-      socket : io('https://carnavalsocket.gamo.gob.bo'),
-      // socket : io('http://localhost:3000'),
+     // socket : io('https://carnavalsocket.gamo.gob.bo'),
+      socket : io('http://localhost:3002'),
       swsocket : 0,
-      contador:15284
+      contador:"",
+      // usuarios:""
     };
   },
   created() {
     this.$store.commit("login/nombre",undefined)
-   // this.misconjuntos();
    this.misconjuntos();
    this.misocket();
-   this.micontador()
-    // socket.on('chat message', message => {
-    //   console.log(message)
-    //   this.misconjuntos()
-    // })
+   //this.micontador()
+   this.socket.on('actualizar', (usuarios_conectados, visitas) => {
+          this.contador=visitas
+        //  this.usuarios=usuarios_conectados
+      });
   },
 
   beforeUnmount() {
@@ -230,7 +238,6 @@ export default {
      this.misocket()
     },
     micontador(){
-      // this.$q.loading.show()
       this.$api.get("contador").then(res=>{
          console.log(res.data)
          this.contador = res.data[0].contador;
